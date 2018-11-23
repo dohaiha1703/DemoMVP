@@ -20,8 +20,6 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
     private StudentAdapter mAdapter;
     private List<Student> mStudents;
-    private DbStudentManager mDbMamager;
-
     private MainPresenter mPresenter;
 
     @Override
@@ -33,7 +31,6 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     protected void initComponent() {
         ListView lvStudent = findViewById(R.id.list_student);
         mStudents = new ArrayList<>();
-        mDbMamager = new DbStudentManager(this);
         mAdapter = new StudentAdapter(this, R.layout.item_student, mStudents);
         lvStudent.setAdapter(mAdapter);
     }
