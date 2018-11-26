@@ -47,9 +47,9 @@ public class StudentAdapter extends ArrayAdapter {
 
             viewHolder = new ViewHolder();
 
-            viewHolder.text_lop = convertView.findViewById(R.id.text_lop);
-            viewHolder.text_Ten = convertView.findViewById(R.id.text_ten_sinh_vien);
-            viewHolder.text_ngay_sinh = convertView.findViewById(R.id.text_ngay_sinh);
+            viewHolder.text_class = convertView.findViewById(R.id.text_class);
+            viewHolder.text_name = convertView.findViewById(R.id.text_name);
+            viewHolder.text_birth = convertView.findViewById(R.id.text_birth);
 
             convertView.setTag(viewHolder);
         } else {
@@ -57,16 +57,16 @@ public class StudentAdapter extends ArrayAdapter {
         }
 
         Student student = mStudents.get(position);
-        viewHolder.text_lop.setText(student.getmLop());
-        viewHolder.text_Ten.setText(student.getmTen());
-        viewHolder.text_ngay_sinh.setText(student.getmNgaySinh() + "");
+        viewHolder.text_class.setText(student.getClassStudent());
+        viewHolder.text_name.setText(student.getName());
+        viewHolder.text_birth.setText(student.getBirth() + "");
 
         return convertView;
     }
 
     class ViewHolder {
-        TextView text_lop;
-        TextView text_Ten;
-        TextView text_ngay_sinh;
+        TextView text_class;
+        TextView text_name;
+        TextView text_birth;
     }
 }

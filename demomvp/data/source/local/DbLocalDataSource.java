@@ -21,8 +21,8 @@ public class DbLocalDataSource implements DbDataSource.Local {
     }
 
     @Override
-    public void addStudent(String ten, String ngay_sinh, String lop) {
-        mDbManager.insertStudent(ten, ngay_sinh, lop);
+    public void addStudent(String name, String birth, String classStudent) {
+        mDbManager.insertStudent(name, birth, classStudent);
     }
 
 }

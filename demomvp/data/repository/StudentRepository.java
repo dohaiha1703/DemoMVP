@@ -8,8 +8,8 @@ import java.util.List;
 
 public class StudentRepository implements DbDataSource.Local, DbDataSource.Remote {
 
-    DbDataSource.Local mLocal;
-    DbDataSource.Remote mRemote;
+    private DbDataSource.Local mLocal;
+    private DbDataSource.Remote mRemote;
 
     public StudentRepository(DbDataSource.Local local, DbDataSource.Remote remote) {
         mLocal = local;
@@ -22,8 +22,8 @@ public class StudentRepository implements DbDataSource.Local, DbDataSource.Remot
     }
 
     @Override
-    public void addStudent(String ten, String ngay_sinh, String lop) {
-        mLocal.addStudent(ten, ngay_sinh, lop);
+    public void addStudent(String name, String birth, String classStudent) {
+        mLocal.addStudent(name, birth, classStudent);
     }
 
     @Override

@@ -6,50 +6,51 @@ package com.duan1.nhom4.demomvp.data.model;
 
 public class Student {
 
-    private int mStt;
-    private String mTen;
-    private String mNgaySinh;
-    private String mLop;
+    private int mNo;
+    private String mName;
+    private String mBirth;
+    private String mClassStudent;
 
-    public Student(int mStt, String mTen, String mNgaySinh, String mLop) {
-        this.mStt = mStt;
-        this.mTen = mTen;
-        this.mNgaySinh = mNgaySinh;
-        this.mLop = mLop;
+    public Student(int no, String name, String birth, String classStudent) {
+        mNo = no;
+        mName = name;
+        mBirth = birth;
+        mClassStudent = classStudent;
+    }
+
+    public int getNo() {
+        return mNo;
+    }
+
+    public void setNo(int no) {
+        mNo = no;
+    }
+
+    public String getName() {
+        return mName;
+    }
+
+    public void setName(String name) {
+        mName = name;
+    }
+
+    public String getBirth() {
+        return mBirth;
+    }
+
+    public void setBirth(String birth) {
+        mBirth = birth;
+    }
+
+    public String getClassStudent() {
+        return mClassStudent;
+    }
+
+    public void setClassStudent(String classStudent) {
+        mClassStudent = classStudent;
     }
 
     public Student() {
-    }
 
-    public int getmStt() {
-        return mStt;
-    }
-
-    public void setmStt(int mStt) {
-        this.mStt = mStt;
-    }
-
-    public String getmTen() {
-        return mTen;
-    }
-
-    public void setmTen(String mTen) {
-        this.mTen = mTen;
-    }
-
-    public String getmNgaySinh() {
-        return mNgaySinh;
-    }
-
-    public void setmNgaySinh(String mNgaySinh) {
-        this.mNgaySinh = mNgaySinh;
-    }
-
-    public String getmLop() {
-        return mLop;
-    }
-
-    public void setmLop(String mLop) {
-        this.mLop = mLop;
     }
 }

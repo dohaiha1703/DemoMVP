@@ -14,7 +14,7 @@ public class MainContract {
     interface Presenter<View> {
         void setView(MainContract.View view);
 
-        void addStudent(String ten, String ngay_sinh, String lop);
+        void addStudent(String name, String birth, String classStudent);
 
         void getData();
     }

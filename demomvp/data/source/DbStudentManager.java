@@ -18,22 +18,22 @@ import java.util.List;
  */
 
 public class DbStudentManager extends SQLiteOpenHelper {
-    public static final String TABLE_NAME = "DANH_SACH_SINH_VIEN";
-    public static final String COLUMN_STT = "STT";
-    public static final String COLUMN_TEN_SV = "TEN_SV";
-    public static final String COLUMN_NGAY_SINH = "NGAY_SINH";
-    public static final String COLUMN_LOP = "LOP_HOC";
+    private static final String TABLE_NAME = "STUDENT_LIST";
+    private static final String COLUMN_NO = "NUMBER";
+    private static final String COLUMN_NAME = "NAME";
+    private static final String COLUMN_BIRTH = "BIRTH";
+    private static final String COLUMN_CLASS = "CLASS_STUDENT";
 
-    public static final String CREATE_TABLE =
+    private static final String CREATE_TABLE =
             "CREATE TABLE " + TABLE_NAME + " ("
-                    + COLUMN_STT + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + COLUMN_TEN_SV + " TEXT, "
-                    + COLUMN_NGAY_SINH + " DATETIME, "
-                    + COLUMN_LOP + " TEXT )";
+                    + COLUMN_NO + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    + COLUMN_NAME + " TEXT, "
+                    + COLUMN_BIRTH + " DATETIME, "
+                    + COLUMN_CLASS + " TEXT )";
 
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "lopHoc_db";
+    private static final String DATABASE_NAME = "Student_db";
 
     public DbStudentManager(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -43,26 +43,21 @@ public class DbStudentManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE);
-//        Toast.makeText(context, "Create Database successfully", Toast.LENGTH_SHORT).show();
-
-
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
         onCreate(db);
     }
 
-
-    public void insertStudent(String tenSV, String ngaySinh, String lop) {
+    public void insertStudent(String mName, String mBirth, String mClass) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
             ContentValues values = new ContentValues();
-            values.put(COLUMN_TEN_SV, tenSV);
-            values.put(COLUMN_NGAY_SINH, String.valueOf(ngaySinh));
-            values.put(COLUMN_LOP, lop);
+            values.put(COLUMN_NAME, mName);
+            values.put(COLUMN_BIRTH, String.valueOf(mBirth));
+            values.put(COLUMN_CLASS, mClass);
             db.insertOrThrow(TABLE_NAME, null, values);
             db.setTransactionSuccessful();
         } catch (Exception e) {
@@ -83,14 +78,13 @@ public class DbStudentManager extends SQLiteOpenHelper {
             if (cursor.moveToFirst()) {
                 do {
                     Student student = new Student();
-                    student.setmStt(cursor.getInt(cursor.getColumnIndex(DbStudentManager.COLUMN_STT)));
-                    student.setmTen(cursor.getString(cursor.getColumnIndex(DbStudentManager.COLUMN_TEN_SV)));
-                    student.setmNgaySinh(cursor.getString(cursor.getColumnIndex(DbStudentManager.COLUMN_NGAY_SINH)));
-                    student.setmLop(cursor.getString(cursor.getColumnIndex(DbStudentManager.COLUMN_LOP)));
+                    student.setNo(cursor.getInt(cursor.getColumnIndex(DbStudentManager.COLUMN_NO)));
+                    student.setName(cursor.getString(cursor.getColumnIndex(DbStudentManager.COLUMN_NAME)));
+                    student.setBirth(cursor.getString(cursor.getColumnIndex(DbStudentManager.COLUMN_BIRTH)));
+                    student.setClassStudent(cursor.getString(cursor.getColumnIndex(DbStudentManager.COLUMN_CLASS)));
                     listStudent.add(student);
                 } while (cursor.moveToNext());
             }
-
         } catch (Exception e) {
             exception = e;
         } finally {

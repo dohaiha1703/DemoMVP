@@ -8,7 +8,7 @@ import java.util.List;
 public interface DbDataSource {
     interface Local{
         void getData(Callback<List<Student>> callback);
-        void addStudent(String ten, String ngay_sinh, String lop);
+        void addStudent(String name, String birth, String classStudent);
     }
     interface Remote{
         void getDataFromSever();

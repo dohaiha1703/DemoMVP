@@ -20,8 +20,8 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
-    public void addStudent(String ten, String ngay_sinh, String lop) {
-        mRepository.addStudent(ten, ngay_sinh, lop);
+    public void addStudent(String name, String birth, String classStudent) {
+        mRepository.addStudent(name, birth, classStudent);
     }
 
     @Override
