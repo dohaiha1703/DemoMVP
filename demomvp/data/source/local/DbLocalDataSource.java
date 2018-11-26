@@ -4,7 +4,6 @@ import com.duan1.nhom4.demomvp.data.Callback;
 import com.duan1.nhom4.demomvp.data.model.Student;
 import com.duan1.nhom4.demomvp.data.source.DbDataSource;
 import com.duan1.nhom4.demomvp.data.source.DbStudentManager;
-
 import java.util.List;
 
 public class DbLocalDataSource implements DbDataSource.Local {

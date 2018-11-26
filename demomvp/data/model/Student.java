@@ -1,9 +1,5 @@
 package com.duan1.nhom4.demomvp.data.model;
 
-/**
- * Created by dohaiha on 09-Apr-18.
- */
-
 public class Student {
 
     private int mNo;

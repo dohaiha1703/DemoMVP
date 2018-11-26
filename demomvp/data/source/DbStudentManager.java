@@ -6,16 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-
 import com.duan1.nhom4.demomvp.data.Callback;
 import com.duan1.nhom4.demomvp.data.model.Student;
-
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by dohaiha on 06-Apr-18.
- */
 
 public class DbStudentManager extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "STUDENT_LIST";
@@ -69,7 +63,6 @@ public class DbStudentManager extends SQLiteOpenHelper {
     public void getAllStudent(Callback<List<Student>> callback) {
         Exception exception = null;
         List<Student> listStudent = new ArrayList<>();
-
         String selectQuery = "SELECT * FROM " + DbStudentManager.TABLE_NAME;
         SQLiteDatabase db = (this.getWritableDatabase());
         Cursor cursor = db.rawQuery(selectQuery, null);

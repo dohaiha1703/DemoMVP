@@ -1,15 +1,12 @@
 package com.duan1.nhom4.demomvp.screen.main;
 
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ListView;
 import android.widget.Toast;
-
 import com.duan1.nhom4.demomvp.R;
+import com.duan1.nhom4.demomvp.data.model.Student;
 import com.duan1.nhom4.demomvp.data.repository.StudentRepository;
 import com.duan1.nhom4.demomvp.data.source.DbStudentManager;
-import com.duan1.nhom4.demomvp.data.model.Student;
 import com.duan1.nhom4.demomvp.data.source.local.DbLocalDataSource;
 import com.duan1.nhom4.demomvp.data.source.remote.DbRemoteDatasource;
 import com.duan1.nhom4.demomvp.screen.base.BaseActivity;

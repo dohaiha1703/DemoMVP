@@ -3,7 +3,6 @@ package com.duan1.nhom4.demomvp.screen.main;
 import com.duan1.nhom4.demomvp.data.Callback;
 import com.duan1.nhom4.demomvp.data.model.Student;
 import com.duan1.nhom4.demomvp.data.repository.StudentRepository;
-
 import java.util.List;
 
 public class MainPresenter implements MainContract.Presenter {
