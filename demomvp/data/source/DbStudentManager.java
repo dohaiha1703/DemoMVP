@@ -31,7 +31,6 @@ public class DbStudentManager extends SQLiteOpenHelper {
                     + COLUMN_BIRTH + " DATETIME, "
                     + COLUMN_CLASS + " TEXT )";
 
-
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "Student_db";
 
@@ -50,14 +49,14 @@ public class DbStudentManager extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insertStudent(String mName, String mBirth, String mClass) {
+    public void insertStudent(String name, String birth, String classStudent) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
             ContentValues values = new ContentValues();
-            values.put(COLUMN_NAME, mName);
-            values.put(COLUMN_BIRTH, String.valueOf(mBirth));
-            values.put(COLUMN_CLASS, mClass);
+            values.put(COLUMN_NAME, name);
+            values.put(COLUMN_BIRTH, String.valueOf(birth));
+            values.put(COLUMN_CLASS, classStudent);
             db.insertOrThrow(TABLE_NAME, null, values);
             db.setTransactionSuccessful();
         } catch (Exception e) {

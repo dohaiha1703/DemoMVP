@@ -1,5 +1,8 @@
 package com.duan1.nhom4.demomvp.screen.main;
 
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -17,8 +20,7 @@ import java.util.List;
 public class MainActivity extends BaseActivity implements MainContract.View {
 
     private static final String TAG = "MainActivity";
-
-    private StudentAdapter mAdapter;
+    private StudentRecyclerViewAdapter mAdapter;
     private List<Student> mStudents;
     private MainPresenter mPresenter;
 
@@ -29,9 +31,11 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
     @Override
     protected void initComponent() {
-        ListView lvStudent = findViewById(R.id.list_student);
+        RecyclerView lvStudent = findViewById(R.id.list_student);
         mStudents = new ArrayList<>();
-        mAdapter = new StudentAdapter(this, R.layout.item_student, mStudents);
+        mAdapter = new StudentRecyclerViewAdapter(mStudents);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
+        lvStudent.setLayoutManager(mLayoutManager);
         lvStudent.setAdapter(mAdapter);
     }
 
@@ -54,12 +58,9 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
     }
 
-
     private void fakeData() {
         for (int i = 0; i < 5; i++) {
             mPresenter.addStudent("Student " + i, "3/4/1922", "PT " + i);
         }
     }
-
-
 }
