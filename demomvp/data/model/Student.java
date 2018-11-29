@@ -4,13 +4,13 @@ public class Student {
 
     private int mNo;
     private String mName;
-    private String mBirth;
+    private String mBirthDay;
     private String mClassStudent;
 
-    public Student(int no, String name, String birth, String classStudent) {
+    public Student(int no, String name, String birthDay, String classStudent) {
         mNo = no;
         mName = name;
-        mBirth = birth;
+        mBirthDay = birthDay;
         mClassStudent = classStudent;
     }
 
@@ -30,12 +30,12 @@ public class Student {
         mName = name;
     }
 
-    public String getBirth() {
-        return mBirth;
+    public String getBirthDay() {
+        return mBirthDay;
     }
 
-    public void setBirth(String birth) {
-        mBirth = birth;
+    public void setBirthDay(String birthDay) {
+        mBirthDay = birthDay;
     }
 
     public String getClassStudent() {

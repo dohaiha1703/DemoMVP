@@ -10,7 +10,6 @@ import com.duan1.nhom4.demomvp.data.source.DbStudentManager;
 import com.duan1.nhom4.demomvp.data.source.local.DbLocalDataSource;
 import com.duan1.nhom4.demomvp.data.source.remote.DbRemoteDatasource;
 import com.duan1.nhom4.demomvp.screen.base.BaseActivity;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +27,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
     @Override
     protected void initComponent() {
-        RecyclerView lvStudent = findViewById(R.id.list_student);
+        RecyclerView lvStudent = findViewById(R.id.recycler_student);
         mStudents = new ArrayList<>();
         mAdapter = new StudentRecyclerViewAdapter(mStudents);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
@@ -42,7 +41,6 @@ public class MainActivity extends BaseActivity implements MainContract.View {
                 new DbLocalDataSource(new DbStudentManager(this)),
                 new DbRemoteDatasource()));
         mPresenter.setView(this);
-        fakeData();
         mPresenter.getData();
     }
 
@@ -53,11 +51,5 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     @Override
     public void onGetDataFailed(Exception e) {
         Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-    }
-
-    private void fakeData() {
-        for (int i = 0; i < 5; i++) {
-            mPresenter.addStudent("Student " + i, "3/4/1922", "PT " + i);
-        }
     }
 }

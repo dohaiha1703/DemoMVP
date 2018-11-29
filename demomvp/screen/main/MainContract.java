@@ -13,7 +13,7 @@ public class MainContract {
     interface Presenter<View> {
         void setView(MainContract.View view);
 
-        void addStudent(String name, String birth, String classStudent);
+        void addStudent(String name, String birthDay, String classStudent);
 
         void getData();
     }

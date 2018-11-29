@@ -20,8 +20,8 @@ public class DbLocalDataSource implements DbDataSource.Local {
     }
 
     @Override
-    public void addStudent(String name, String birth, String classStudent) {
-        mDbManager.insertStudent(name, birth, classStudent);
+    public void addStudent(String name, String birthDay, String classStudent) {
+        mDbManager.insertStudent(name, birthDay, classStudent);
     }
 
 }

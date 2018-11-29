@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DbStudentManager extends SQLiteOpenHelper {
-    private static final String TABLE_NAME = "STUDENT_LIST";
+    private static final String TABLE_NAME = "STUDENT";
     private static final String COLUMN_NO = "NUMBER";
     private static final String COLUMN_NAME = "NAME";
-    private static final String COLUMN_BIRTH = "BIRTH";
-    private static final String COLUMN_CLASS = "CLASS_STUDENT";
+    private static final String COLUMN_BIRTH = "BIRTHDAY";
+    private static final String COLUMN_CLASS = "CLASSSTUDENT";
 
     private static final String CREATE_TABLE =
             "CREATE TABLE " + TABLE_NAME + " ("
@@ -43,13 +43,13 @@ public class DbStudentManager extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insertStudent(String name, String birth, String classStudent) {
+    public void insertStudent(String name, String birthDay, String classStudent) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
             ContentValues values = new ContentValues();
             values.put(COLUMN_NAME, name);
-            values.put(COLUMN_BIRTH, String.valueOf(birth));
+            values.put(COLUMN_BIRTH, String.valueOf(birthDay));
             values.put(COLUMN_CLASS, classStudent);
             db.insertOrThrow(TABLE_NAME, null, values);
             db.setTransactionSuccessful();
@@ -72,7 +72,7 @@ public class DbStudentManager extends SQLiteOpenHelper {
                     Student student = new Student();
                     student.setNo(cursor.getInt(cursor.getColumnIndex(DbStudentManager.COLUMN_NO)));
                     student.setName(cursor.getString(cursor.getColumnIndex(DbStudentManager.COLUMN_NAME)));
-                    student.setBirth(cursor.getString(cursor.getColumnIndex(DbStudentManager.COLUMN_BIRTH)));
+                    student.setBirthDay(cursor.getString(cursor.getColumnIndex(DbStudentManager.COLUMN_BIRTH)));
                     student.setClassStudent(cursor.getString(cursor.getColumnIndex(DbStudentManager.COLUMN_CLASS)));
                     listStudent.add(student);
                 } while (cursor.moveToNext());

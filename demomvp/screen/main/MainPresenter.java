@@ -6,6 +6,7 @@ import com.duan1.nhom4.demomvp.data.repository.StudentRepository;
 import java.util.List;
 
 public class MainPresenter implements MainContract.Presenter {
+
     private StudentRepository mRepository;
     private MainContract.View mView;
 
@@ -19,8 +20,8 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
-    public void addStudent(String name, String birth, String classStudent) {
-        mRepository.addStudent(name, birth, classStudent);
+    public void addStudent(String name, String birthDay, String classStudent) {
+        mRepository.addStudent(name, birthDay, classStudent);
     }
 
     @Override

@@ -21,8 +21,8 @@ public class StudentRepository implements DbDataSource.Local, DbDataSource.Remot
     }
 
     @Override
-    public void addStudent(String name, String birth, String classStudent) {
-        mLocal.addStudent(name, birth, classStudent);
+    public void addStudent(String name, String birthDay, String classStudent) {
+        mLocal.addStudent(name, birthDay, classStudent);
     }
 
     @Override
