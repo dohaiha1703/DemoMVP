@@ -3,6 +3,7 @@ package com.duan1.nhom4.demomvp.screen.main;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
+
 import com.duan1.nhom4.demomvp.R;
 import com.duan1.nhom4.demomvp.data.model.Student;
 import com.duan1.nhom4.demomvp.data.repository.StudentRepository;
@@ -10,6 +11,7 @@ import com.duan1.nhom4.demomvp.data.source.DbStudentManager;
 import com.duan1.nhom4.demomvp.data.source.local.DbLocalDataSource;
 import com.duan1.nhom4.demomvp.data.source.remote.DbRemoteDatasource;
 import com.duan1.nhom4.demomvp.screen.base.BaseActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,5 +53,12 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     @Override
     public void onGetDataFailed(Exception e) {
         Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+    }
+
+    private void creatData() {
+        for (int i = 0; i < Student.StudentKey.NUMBER_STUDENT; i++) {
+            mPresenter.addStudent(Student.StudentKey.NAME, Student.StudentKey.BIRTH_DAY,
+                    Student.StudentKey.CLASS_STUDENT);
+        }
     }
 }

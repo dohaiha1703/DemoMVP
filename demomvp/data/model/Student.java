@@ -49,4 +49,11 @@ public class Student {
     public Student() {
 
     }
+
+    public class StudentKey {
+        public static final String NAME = "Student";
+        public static final String CLASS_STUDENT = "PT";
+        public static final String BIRTH_DAY = "17/03/1996";
+        public static final int NUMBER_STUDENT = 5;
+    }
 }
