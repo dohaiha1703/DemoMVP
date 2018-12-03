@@ -5,9 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.constraint.ConstraintLayout;
 import android.util.Log;
+
 import com.duan1.nhom4.demomvp.data.Callback;
 import com.duan1.nhom4.demomvp.data.model.Student;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,9 +31,17 @@ public class DbStudentManager extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "Student_db";
 
-    public DbStudentManager(Context context) {
+    private static DbStudentManager sInstance;
+
+    public static DbStudentManager getInstance(Context context) {
+        if (sInstance == null) {
+            sInstance = new DbStudentManager(context);
+        }
+        return sInstance;
+    }
+
+    private DbStudentManager(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        Log.d("DbStudentManager", "DbStudentManager");
     }
 
     @Override

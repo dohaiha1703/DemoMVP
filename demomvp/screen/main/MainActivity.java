@@ -39,10 +39,11 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
     @Override
     protected void initData() {
-        mPresenter = new MainPresenter(new StudentRepository(
-                new DbLocalDataSource(new DbStudentManager(this)),
+        mPresenter = new MainPresenter(StudentRepository.getInstance(
+                DbLocalDataSource.getInstance(DbStudentManager.getInstance(this)),
                 new DbRemoteDatasource()));
         mPresenter.setView(this);
+        creatData();
         mPresenter.getData();
     }
 

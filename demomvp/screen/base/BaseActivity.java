@@ -12,7 +12,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         initComponent();
         initData();
     }
+
     abstract protected int getLayoutResource();
+
     abstract protected void initComponent();
+
     abstract protected void initData();
 }

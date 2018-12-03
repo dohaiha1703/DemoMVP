@@ -3,14 +3,23 @@ package com.duan1.nhom4.demomvp.data.repository;
 import com.duan1.nhom4.demomvp.data.Callback;
 import com.duan1.nhom4.demomvp.data.model.Student;
 import com.duan1.nhom4.demomvp.data.source.DbDataSource;
+
 import java.util.List;
 
 public class StudentRepository implements DbDataSource.Local, DbDataSource.Remote {
 
     private DbDataSource.Local mLocal;
     private DbDataSource.Remote mRemote;
+    private static StudentRepository sInstance;
 
-    public StudentRepository(DbDataSource.Local local, DbDataSource.Remote remote) {
+    public static StudentRepository getInstance(DbDataSource.Local local, DbDataSource.Remote remote) {
+        if (sInstance == null) {
+            sInstance = new StudentRepository(local, remote);
+        }
+        return sInstance;
+    }
+
+    private StudentRepository(DbDataSource.Local local, DbDataSource.Remote remote) {
         mLocal = local;
         mRemote = remote;
     }

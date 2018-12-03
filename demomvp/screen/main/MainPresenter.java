@@ -3,6 +3,7 @@ package com.duan1.nhom4.demomvp.screen.main;
 import com.duan1.nhom4.demomvp.data.Callback;
 import com.duan1.nhom4.demomvp.data.model.Student;
 import com.duan1.nhom4.demomvp.data.repository.StudentRepository;
+
 import java.util.List;
 
 public class MainPresenter implements MainContract.Presenter {
@@ -25,7 +26,7 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
-    public void getData(){
+    public void getData() {
         mRepository.getData(new Callback<List<Student>>() {
             @Override
             public void onGetDataSuccess(List<Student> data) {
