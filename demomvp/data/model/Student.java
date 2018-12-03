@@ -2,24 +2,17 @@ package com.duan1.nhom4.demomvp.data.model;
 
 public class Student {
 
-    private int mNo;
+    private int mId;
     private String mName;
     private String mBirthDay;
     private String mClassStudent;
 
-    public Student(int no, String name, String birthDay, String classStudent) {
-        mNo = no;
-        mName = name;
-        mBirthDay = birthDay;
-        mClassStudent = classStudent;
+    public int getId() {
+        return mId;
     }
 
-    public int getNo() {
-        return mNo;
-    }
-
-    public void setNo(int no) {
-        mNo = no;
+    public void setId(int id) {
+        mId = id;
     }
 
     public String getName() {
@@ -50,10 +43,10 @@ public class Student {
 
     }
 
-    public class StudentKey {
-        public static final String NAME = "Student";
-        public static final String CLASS_STUDENT = "PT";
-        public static final String BIRTH_DAY = "17/03/1996";
-        public static final int NUMBER_STUDENT = 5;
+    public class BaseDataKey {
+        public static final String BASE_NAME = "Student";
+        public static final String BASE_CLASS_STUDENT = "PT";
+        public static final String BASE_BIRTH_DAY = "17/03/1996";
+        public static final int BASE_NUMBER_STUDENT = 5;
     }
 }

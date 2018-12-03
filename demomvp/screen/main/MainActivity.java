@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
                 DbLocalDataSource.getInstance(DbStudentManager.getInstance(this)),
                 new DbRemoteDatasource()));
         mPresenter.setView(this);
-        creatData();
+        mPresenter.createBaseData();
         mPresenter.getData();
     }
 
@@ -54,12 +54,5 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     @Override
     public void onGetDataFailed(Exception e) {
         Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-    }
-
-    private void creatData() {
-        for (int i = 0; i < Student.StudentKey.NUMBER_STUDENT; i++) {
-            mPresenter.addStudent(Student.StudentKey.NAME, Student.StudentKey.BIRTH_DAY,
-                    Student.StudentKey.CLASS_STUDENT);
-        }
     }
 }

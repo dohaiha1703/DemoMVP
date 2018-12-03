@@ -5,8 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.constraint.ConstraintLayout;
-import android.util.Log;
 
 import com.duan1.nhom4.demomvp.data.Callback;
 import com.duan1.nhom4.demomvp.data.model.Student;
@@ -81,7 +79,7 @@ public class DbStudentManager extends SQLiteOpenHelper {
             if (cursor.moveToFirst()) {
                 do {
                     Student student = new Student();
-                    student.setNo(cursor.getInt(cursor.getColumnIndex(DbStudentManager.COLUMN_NO)));
+                    student.setId(cursor.getInt(cursor.getColumnIndex(DbStudentManager.COLUMN_NO)));
                     student.setName(cursor.getString(cursor.getColumnIndex(DbStudentManager.COLUMN_NAME)));
                     student.setBirthDay(cursor.getString(cursor.getColumnIndex(DbStudentManager.COLUMN_BIRTH)));
                     student.setClassStudent(cursor.getString(cursor.getColumnIndex(DbStudentManager.COLUMN_CLASS)));
