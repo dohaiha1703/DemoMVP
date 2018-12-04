@@ -81,10 +81,14 @@ public class StudentDatabaseManager extends SQLiteOpenHelper {
             if (cursor.moveToFirst()) {
                 do {
                     Student student = new Student();
-                    student.setId(cursor.getInt(cursor.getColumnIndex(StudentDatabaseManager.COLUMN_ID)));
-                    student.setName(cursor.getString(cursor.getColumnIndex(StudentDatabaseManager.COLUMN_NAME)));
-                    student.setBirthDay(cursor.getString(cursor.getColumnIndex(StudentDatabaseManager.COLUMN_BIRTH)));
-                    student.setClassStudent(cursor.getString(cursor.getColumnIndex(StudentDatabaseManager.COLUMN_CLASS)));
+                    student.setId(cursor.getInt
+                            (cursor.getColumnIndex(StudentDatabaseManager.COLUMN_ID)));
+                    student.setName(cursor.getString
+                            (cursor.getColumnIndex(StudentDatabaseManager.COLUMN_NAME)));
+                    student.setBirthDay(cursor.getString
+                            (cursor.getColumnIndex(StudentDatabaseManager.COLUMN_BIRTH)));
+                    student.setClassStudent(cursor.getString
+                            (cursor.getColumnIndex(StudentDatabaseManager.COLUMN_CLASS)));
                     listStudent.add(student);
                 } while (cursor.moveToNext());
             }

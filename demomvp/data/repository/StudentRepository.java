@@ -12,7 +12,8 @@ public class StudentRepository implements StudentDataSource.Local, StudentDataSo
     private StudentDataSource.Remote mRemote;
     private static StudentRepository sInstance;
 
-    public static StudentRepository getInstance(StudentDataSource.Local local, StudentDataSource.Remote remote) {
+    public static StudentRepository getInstance(StudentDataSource.Local local,
+                                                StudentDataSource.Remote remote) {
         if (sInstance == null) {
             sInstance = new StudentRepository(local, remote);
         }

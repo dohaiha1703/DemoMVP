@@ -12,7 +12,8 @@ import com.duan1.nhom4.demomvp.data.model.Student;
 
 import java.util.List;
 
-public class StudentRecyclerViewAdapter extends RecyclerView.Adapter<StudentRecyclerViewAdapter.ViewHolder> {
+public class StudentRecyclerViewAdapter extends
+        RecyclerView.Adapter<StudentRecyclerViewAdapter.ViewHolder> {
 
     private List<Student> mStudents;
 
