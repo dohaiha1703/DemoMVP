@@ -40,11 +40,4 @@ public class MainPresenter implements MainContract.Presenter {
         });
     }
 
-    @Override
-    public void createBaseData() {
-        for (int i = 0; i < Student.BaseDataKey.BASE_NUMBER_STUDENT; i++) {
-            addStudent(Student.BaseDataKey.BASE_NAME, Student.BaseDataKey.BASE_BIRTH_DAY,
-                    Student.BaseDataKey.BASE_CLASS_STUDENT);
-        }
-    }
 }

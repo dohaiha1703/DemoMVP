@@ -32,5 +32,4 @@ public class DbLocalDataSource implements DbDataSource.Local {
     public void addStudent(String name, String birthDay, String classStudent) {
         mDbManager.insertStudent(name, birthDay, classStudent);
     }
-
 }

@@ -1,7 +1,6 @@
 package com.duan1.nhom4.demomvp.data.model;
 
 public class Student {
-
     private int mId;
     private String mName;
     private String mBirthDay;
@@ -41,12 +40,5 @@ public class Student {
 
     public Student() {
 
-    }
-
-    public class BaseDataKey {
-        public static final String BASE_NAME = "Student";
-        public static final String BASE_CLASS_STUDENT = "PT";
-        public static final String BASE_BIRTH_DAY = "17/03/1996";
-        public static final int BASE_NUMBER_STUDENT = 5;
     }
 }

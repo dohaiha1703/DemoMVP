@@ -17,7 +17,5 @@ public class MainContract {
         void addStudent(String name, String birthDay, String classStudent);
 
         void getData();
-
-        void createBaseData();
     }
 }
