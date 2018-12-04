@@ -1,11 +1,15 @@
 package com.duan1.nhom4.demomvp.data.source.remote;
 
-import com.duan1.nhom4.demomvp.data.source.DbDataSource;
+import com.duan1.nhom4.demomvp.data.Callback;
+import com.duan1.nhom4.demomvp.data.model.Student;
+import com.duan1.nhom4.demomvp.data.source.StudentDataSource;
 
-public class DbRemoteDatasource implements DbDataSource.Remote {
+import java.util.List;
+
+public class DbRemoteDatasource implements StudentDataSource.Remote {
 
     @Override
-    public void getDataFromSever() {
+    public void getStudentsFromSever(Callback<List<Student>> callback) {
 
     }
 }

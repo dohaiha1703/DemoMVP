@@ -2,34 +2,34 @@ package com.duan1.nhom4.demomvp.data.source.local;
 
 import com.duan1.nhom4.demomvp.data.Callback;
 import com.duan1.nhom4.demomvp.data.model.Student;
-import com.duan1.nhom4.demomvp.data.source.DbDataSource;
-import com.duan1.nhom4.demomvp.data.source.DbStudentManager;
+import com.duan1.nhom4.demomvp.data.source.StudentDataSource;
+import com.duan1.nhom4.demomvp.data.source.StudentDatabaseManager;
 
 import java.util.List;
 
-public class DbLocalDataSource implements DbDataSource.Local {
+public class DbLocalDataSource implements StudentDataSource.Local {
 
-    private DbStudentManager mDbManager;
+    private StudentDatabaseManager mDbManager;
     private static DbLocalDataSource sInstance;
 
-    public static DbLocalDataSource getInstance(DbStudentManager dbManager) {
+    public static DbLocalDataSource getInstance(StudentDatabaseManager dbManager) {
         if (sInstance == null) {
             sInstance = new DbLocalDataSource(dbManager);
         }
         return sInstance;
     }
 
-    private DbLocalDataSource(DbStudentManager dbManager) {
+    private DbLocalDataSource(StudentDatabaseManager dbManager) {
         mDbManager = dbManager;
     }
 
     @Override
-    public void getData(Callback<List<Student>> callback) {
-        mDbManager.getAllStudent(callback);
+    public void getStudents(Callback<List<Student>> callback) {
+        mDbManager.getStudents(callback);
     }
 
     @Override
-    public void addStudent(String name, String birthDay, String classStudent) {
-        mDbManager.insertStudent(name, birthDay, classStudent);
+    public void addStudent(Student student) {
+        mDbManager.insertStudent(student);
     }
 }

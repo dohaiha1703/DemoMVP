@@ -21,13 +21,13 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
-    public void addStudent(String name, String birthDay, String classStudent) {
-        mRepository.addStudent(name, birthDay, classStudent);
+    public void addStudent(Student student) {
+        mRepository.addStudent(student);
     }
 
     @Override
     public void getData() {
-        mRepository.getData(new Callback<List<Student>>() {
+        mRepository.getStudents(new Callback<List<Student>>() {
             @Override
             public void onGetDataSuccess(List<Student> data) {
                 mView.onGetStudentSuccess(data);
