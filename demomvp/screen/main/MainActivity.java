@@ -8,8 +8,8 @@ import com.duan1.nhom4.demomvp.R;
 import com.duan1.nhom4.demomvp.data.model.Student;
 import com.duan1.nhom4.demomvp.data.repository.StudentRepository;
 import com.duan1.nhom4.demomvp.data.source.StudentDatabaseManager;
-import com.duan1.nhom4.demomvp.data.source.local.DbLocalDataSource;
-import com.duan1.nhom4.demomvp.data.source.remote.DbRemoteDatasource;
+import com.duan1.nhom4.demomvp.data.source.local.LocalStudentDataSource;
+import com.duan1.nhom4.demomvp.data.source.remote.RemoteStudentDatasource;
 import com.duan1.nhom4.demomvp.screen.base.BaseActivity;
 
 import java.util.ArrayList;
@@ -40,8 +40,8 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     @Override
     protected void initData() {
         mPresenter = new MainPresenter(StudentRepository.getInstance(
-                DbLocalDataSource.getInstance(StudentDatabaseManager.getInstance(this)),
-                new DbRemoteDatasource()));
+                LocalStudentDataSource.getInstance(StudentDatabaseManager.getInstance(this)),
+                new RemoteStudentDatasource()));
         mPresenter.setView(this);
         mPresenter.getData();
     }
